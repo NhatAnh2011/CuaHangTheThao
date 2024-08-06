@@ -1,0 +1,46 @@
+﻿@using CuaHangTheThao.Models;
+@model CuaHangTheThao.Models.SanPham
+
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm";
+    Layout = "~/Views/Shared/layout_trangchu.cshtml";
+    var danhMuc = ViewBag.DanhMuc as List<DanhMucSanPham>;
+}
+
+<h2 style="text-align:center; color: #2c3e50;">Chi Tiết Sản Phẩm</h2>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@Url.Content("~/Content/Images/" + Model.hinh_anh_url)" alt="Product image" class="img-fluid rounded" style="border: 1px solid #ddd; padding: 5px;" />
+        </div>
+        <div class="col-md-8">
+            <div class="mb-3">
+                <h4 class="text-primary">@Html.DisplayFor(model => model.ten)</h4>
+            </div>
+            <div class="mb-3">
+                <label class="font-weight-bold" style="color:brown;">Mô Tả</label>
+                <div class="text-muted">@Html.DisplayFor(model => model.mo_ta)</div>
+            </div>
+            <div class="mb-3">
+                <label class="font-weight-bold" style="color:brown;">Giá Bán</label>
+                <div class="text-success font-weight-bold">@String.Format("{0:###,### VND}", Model.gia)</div>
+            </div>
+            <div class="mb-3">
+                <label class="font-weight-bold" style="color:brown;">Số Lượng</label>
+            </div>
+            <div>
+                <p>Danh Mục</p>
+                <ul>
+                    @if (danhMuc != null)
+                    {
+                        foreach (var dm in danhMuc.Where(d => d.danh_muc_id == Model.danh_muc_id))
+                        {
+                            <li>@dm.ten</li>
+                        }
+                    }
+                </ul>
+            </div>
+            <a href="@Url.Action("AddToCart", "Cart", new { id = Model.san_pham_id })" class="btn btn-danger">Thêm vào Giỏ Hàng</a>
+        </div>
+    </div>
+</div>

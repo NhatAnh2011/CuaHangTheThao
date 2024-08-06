@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+@using CuaHangTheThao.Models;
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Controllers/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/layout_trangchu.css" rel="stylesheet" />
+    <link href="~/Content/dangnhap.css" rel="stylesheet" />
+    <link href="~/Content/trangchu.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+
+</head>
+<body>
+    <style>
+        #myImage {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: left 0.5s;
+        }
+    </style>
+
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <b>DIMODO SPORT - CHUYÊN ÁO BÓNG ĐÁ THIẾT KẾ ĐẸP</b>
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-7">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Khuyến Mãi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Câu Hỏi Thường Gặp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Blog Bóng Đá</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Đăng Ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/DangNhap">Đăng Nhập</a>
+                        @if (Session["nd"] != null)
+                        {
+                            var nd = (CuaHangTheThao.Models.NguoiDung)Session["nd"];
+                            <span>Chào, @nd.ten_dang_nhap</span>
+                        }
+                        else
+                        {
+                            <span>Chào, Khách</span>}
+                        <a href="/GioHang/Index" class="btn btn-info">
+                            <img src="https://th.bing.com/th/id/OIP.YYgXL1OvwdmYVLD3U5JiRQAAAA?rs=1&pid=ImgDetMain" alt="Giỏ hàng" style="width: 20px; height: 20px;" />
+                            Giỏ Hàng (@ViewBag.CartItemCount)
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        @*<a href="/DatHang/XemGioHang"><img src="https://th.bing.com/th/id/OIP.YYgXL1OvwdmYVLD3U5JiRQAAAA?rs=1&pid=ImgDetMain&quot;" alt=" giỏ hàng" style="width: 20px; height: 20px;" /></a>
+
+            @{
+                if (Session["nd"] != null)
+                {
+                    var kh = Session["nd"] as CuaHangTheThao.Models.NguoiDung;
+                    <label>Chào bạn, @nd.ten_dang_nhap </label>
+                }
+                else
+                {
+                    <label>   </label>
+                }
+            }*@
+
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+
+                <img src="~/Images/logo.jpg" style="height:90px ; width:150px" />
+            </div>
+            <div class="col-9">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Đồ Bóng đá</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Đồ Bóng Rỗ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Đồ Bóng Chuyền</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Đồ Chạy Bộ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/trangchu">Sản phẩm có sẵn</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <p class="container-fluid" style="color:red; text-align:center; height:60px; width:200px; white-space: nowrap; font-weight: bold; font-family: Arial, sans-serif;">
+        DANH MỤC SẢN PHẨM
+    </p>
+    <p>
+        @Html.ActionLink("Thêm mới", "ThemMoi")
+    </p>
+    <p style="text-align:center; color:red">Hơn 5.000 + sản phẩm được thiết kế và sản xuất tại DIMODO SPORT đang mang đến cho khách hàng sự tin tưởng tuyệt đối.</p>
+    <br />
+    <div class="row">
+        <div class="col-3">
+            @Html.Action("DanhMucSanPham", "Home")
+           
+
+        </div>
+        <div class=" col-9">
+            @RenderBody()
+
+        </div>
+        </div>
+</body>
+</html>
