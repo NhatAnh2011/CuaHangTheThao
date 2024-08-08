@@ -50,6 +50,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Home/DangNhap">Đăng Nhập</a>
+                        
+                        </a>
+                        <br />
                         @if (Session["nd"] != null)
                         {
                             var nd = (CuaHangTheThao.Models.NguoiDung)Session["nd"];
@@ -58,9 +61,19 @@
                         else
                         {
                             <span>Chào, Khách</span>}
-                        <a href="/GioHang/Index" class="btn btn-info">
+                        <a href="/DatHang/XemGioHang" class="position-relative">
                             <img src="https://th.bing.com/th/id/OIP.YYgXL1OvwdmYVLD3U5JiRQAAAA?rs=1&pid=ImgDetMain" alt="Giỏ hàng" style="width: 20px; height: 20px;" />
-                            Giỏ Hàng (@ViewBag.CartItemCount)
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                @if (Session["gh"] != null)
+                                {
+                                    var gh = Session["gh"] as CuaHangTheThao.Models.GioHangmodel;
+                                    @gh.TongSLHang()
+                                }
+                                else
+                                {
+                                    @:0
+                                }
+                            </span>
                         </a>
 
                     </li>
@@ -88,7 +101,7 @@
         <div class="row">
             <div class="col-3">
 
-                <img src="~/Images/logo.jpg" style="height:90px ; width:150px" />
+                <img src="~/Content/Images/logo.jpg" style="height:90px ; width:150px" />
             </div>
             <div class="col-9">
                 <ul class="nav">

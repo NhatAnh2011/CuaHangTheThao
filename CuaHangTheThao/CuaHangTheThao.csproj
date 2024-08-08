@@ -121,15 +121,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DatHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\csdl_cuahangthethao.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>csdl_cuahangthethao.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHangmodel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +141,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dangnhap.css" />
+    <Content Include="Content\Images\ChonMua.jpg" />
     <Content Include="Content\Images\GiayTheThao1.jpg" />
     <Content Include="Content\Images\GiayTheThao10.jpg" />
     <Content Include="Content\Images\GiayTheThao11.jpg" />
@@ -175,6 +179,7 @@
     <Content Include="Content\Images\Screenshot 2024-08-05 074625.jpg" />
     <Content Include="Content\Images\timkiem.jpg" />
     <Content Include="Content\layout_trangchu.css" />
+    <Content Include="Content\soluong.js" />
     <Content Include="Content\trangchu.css" />
     <Content Include="Controllers\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Controllers\bootstrap\css\bootstrap-grid.min.css" />
@@ -182,6 +187,8 @@
     <Content Include="Controllers\bootstrap\css\bootstrap-reboot.min.css" />
     <Content Include="Controllers\bootstrap\css\bootstrap.css" />
     <Content Include="Controllers\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Controllers\bootstrap\css\Details.css" />
+    <Content Include="Controllers\bootstrap\css\SuaMatHang.css" />
     <Content Include="Controllers\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Controllers\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Controllers\bootstrap\js\bootstrap.js" />
@@ -238,6 +245,10 @@
     <Content Include="Views\Home\DanhMucSanPham.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\DangNhap.cshtml" />
+    <Content Include="Views\DatHang\XemGioHang.cshtml" />
+    <Content Include="Views\DatHang\XLDatHang.cshtml" />
+    <Content Include="Views\DatHang\SuaMatHang.cshtml" />
+    <Content Include="Views\DatHang\XacNhanDatHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

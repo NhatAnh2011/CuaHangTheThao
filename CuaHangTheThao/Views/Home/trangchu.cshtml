@@ -15,7 +15,9 @@
             <div class="card-body">
                 
                 @Html.ActionLink("Chi tiết", "Details", "Home", new { id = sp.san_pham_id }, new { @class = "btn btn-warning" })
-                @Html.ActionLink("Chọn", "Details", "Home", new { id = @sp.san_pham_id }, new { @class = "btn btn-warning" })
+                <a href="/DatHang/ThemMatHang/?msp=@sp.san_pham_id">
+                    Chọn Mua
+                </a>
             </div>
         </div>
     }
